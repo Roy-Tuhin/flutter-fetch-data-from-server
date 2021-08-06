@@ -1,15 +1,15 @@
 class Data {
-  final int name;
-  final int email;
+  final int doctorId;
+  final int encDoctorId;
   final String title;
   final String body;
 
-  Data({this.name, this.email, this.title, this.body});
+  Data({this.doctorId, this.encDoctorId, this.title, this.body});
 
   factory Data.fromJson(Map<String, dynamic> json) {
     return Data(
-        name: json['name'],
-        email: json['email'],
+        doctorId: json['DoctorId'],
+        encDoctorId: json['DoctorId'],
         title: json['title'],
         body: json['body']);
   }

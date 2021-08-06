@@ -25,7 +25,9 @@ class Server extends StatefulWidget {
 
 class _ServerState extends State<Server> {
   Future<List<dynamic>> fetchData() async {
-    final response = await http.get("http://codingwithjks.tech/data.php");
+    final response =
+        // await http.get("https://jsonplaceholder.typicode.com/users");
+        await http.get("https://jsonplaceholder.typicode.com/users");
     return json.decode(response.body);
   }
 
@@ -33,8 +35,8 @@ class _ServerState extends State<Server> {
     return actor['name'];
   }
 
-  String _age(dynamic actor) {
-    return actor['age'].toString();
+  String _email(dynamic actor) {
+    return actor['email'];
   }
 
   Widget build(BuildContext context) {
@@ -50,13 +52,13 @@ class _ServerState extends State<Server> {
                   child: Column(
                     children: <Widget>[
                       ListTile(
-                        leading: CircleAvatar(
-                          radius: 30,
-                          backgroundImage:
-                              NetworkImage(snapshot.data[index]['image']),
-                        ),
+                        // leading: CircleAvatar(
+                        //   radius: 30,
+                        //   backgroundImage:
+                        //       // NetworkImage(snapshot.data[index]['image']),
+                        // ),
                         title: Text(_name(snapshot.data[index])),
-                        subtitle: Text(_age(snapshot.data[index])),
+                        subtitle: Text(_email(snapshot.data[index])),
                       )
                     ],
                   ),

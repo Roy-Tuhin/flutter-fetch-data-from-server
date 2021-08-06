@@ -56,21 +56,19 @@ class _ServerState extends State<Server> {
                 return (Card(
                   child: Column(
                     children: [
+                      ListTile(
+                        leading: CircleAvatar(
+                          radius: 30,
+                          backgroundImage:
+                              NetworkImage(snapshot.data[index]['DoctorImage']),
+                        ),
+                        title: Text(snapshot.data[index]['DoctorName']),
+                        subtitle: Text("Specialisation: " +
+                            snapshot.data[index]['Specialisation']),
+                      ),
                       Text("Doc Id:" + snapshot.data[index]['DoctorId']),
                       Text("Doc EncDoctorId:" +
                           snapshot.data[index]['EncDoctorId']),
-                      Text("Doc Name:" + snapshot.data[index]['DoctorName']),
-                      Text("Specialisation" +
-                          snapshot.data[index]['Specialisation']),
-                      // ListTile(
-                      //   leading: CircleAvatar(
-                      //     radius: 30,
-                      //     backgroundImage:
-                      //         NetworkImage(snapshot.data[index]['DoctorImage']),
-                      //   ),
-                      //   title: Text(snapshot.data[index]['DoctorId']),
-                      //   subtitle: Text(snapshot.data[index]['EncDoctorId']),
-                      // ),
                     ],
                   ),
                 ));
